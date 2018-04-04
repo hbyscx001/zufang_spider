@@ -59,7 +59,7 @@ class LianjiaSpider(scrapy.Spider):
             r = redis.Redis(connection_pool=self.redis_pool)
             value = r.get(item['xiaoqu_name'])
             if not value:
-                url_location = u"http://restapi.amap.com/v3/geocode/geo?address=杭州{}&output=XML&key=ee1ec32d42534c1c789d673e87545b38".format(item['xiaoqu_name'])
+                url_location = u"http://restapi.amap.com/v3/geocode/geo?address=杭州{}&output=XML&key=***".format(item['xiaoqu_name'])
                 request = scrapy.Request(url_location, callback=self.gaode_location_parse)
                 request.meta['item'] = item
                 yield request
